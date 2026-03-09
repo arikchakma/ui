@@ -1,8 +1,9 @@
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { useColorPickerRootContext } from './color-picker-root-context';
-import { useColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
+import { useRender } from '@base-ui/react/use-render';
+
 import { getChannelSliderStyle } from '../utils/channel-slider';
+import { useColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
+import { useColorPickerRootContext } from './color-picker-root-context';
 
 type ColorPickerChannelSliderTrackProps = Omit<
   React.ComponentProps<'div'>,

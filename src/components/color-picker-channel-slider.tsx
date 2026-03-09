@@ -1,16 +1,17 @@
-import * as React from 'react';
-import { clamp } from '../utils/math';
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { useColorPickerRootContext } from './color-picker-root-context';
+import { useRender } from '@base-ui/react/use-render';
+import * as React from 'react';
+
 import { useColorPickerHandlers } from '../hooks/use-color-picker-handlers';
 import type { Interaction } from '../hooks/use-color-picker-handlers';
-import { HSVA_CHANNEL_CONFIG, readHsvaChannel } from '../utils/channels';
-import type { HsvaChannel } from '../utils/channels';
 import { bool } from '../utils/attrs';
-import { ColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
 import { CHANNEL_SLIDER_ORIENTATIONS } from '../utils/channel-slider';
 import type { ChannelSliderOrientation } from '../utils/channel-slider';
+import { HSVA_CHANNEL_CONFIG, readHsvaChannel } from '../utils/channels';
+import type { HsvaChannel } from '../utils/channels';
+import { clamp } from '../utils/math';
+import { ColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
+import { useColorPickerRootContext } from './color-picker-root-context';
 
 export type ColorPickerChannelSliderProps = Omit<
   React.ComponentProps<'div'>,

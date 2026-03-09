@@ -1,15 +1,16 @@
-import * as React from 'react';
-import { clamp } from '../utils/math';
-import { CROMIA_ERROR_PREFIX } from '../utils/constants';
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { hexToHsva, isHexValid } from '../utils/hex';
-import { hsvaToHex, hsvaToRgba } from '../utils/hsv';
-import { rgbaToHsva, rgbaToHexInt, hexIntToRgba } from '../utils/rgb';
+import { useRender } from '@base-ui/react/use-render';
+import * as React from 'react';
+
 import { HSVA_CHANNEL_CONFIG, readHsvaChannel } from '../utils/channels';
 import type { HsvaChannel } from '../utils/channels';
 import type { HsvaColor } from '../utils/color';
 import { ARROW_DOWN, ARROW_UP, ENTER, HOME, END } from '../utils/composite';
+import { CROMIA_ERROR_PREFIX } from '../utils/constants';
+import { hexToHsva, isHexValid } from '../utils/hex';
+import { hsvaToHex, hsvaToRgba } from '../utils/hsv';
+import { clamp } from '../utils/math';
+import { rgbaToHsva, rgbaToHexInt, hexIntToRgba } from '../utils/rgb';
 import { useColorPickerRootContext } from './color-picker-root-context';
 
 type InputChannel = HsvaChannel | 'hex' | 'hex-alpha';

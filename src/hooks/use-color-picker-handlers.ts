@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { clamp } from '../utils/math';
+
 import {
   ARROW_DOWN,
   ARROW_LEFT,
@@ -8,6 +8,7 @@ import {
   END,
   HOME,
 } from '../utils/composite';
+import { clamp } from '../utils/math';
 
 export type Interaction = {
   left: number;

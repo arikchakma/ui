@@ -1,5 +1,5 @@
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
+import { useRender } from '@base-ui/react/use-render';
 
 type ColorPickerSwatchGroupProps = Omit<
   React.ComponentProps<'div'>,

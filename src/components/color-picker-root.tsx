@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { getHsvaStyleVariables, hsvaToHex } from '../utils/hsv';
-import { isAnyColorEqual } from '../utils/color';
-import type { AnyColor, HsvaColor } from '../utils/color';
-import { parseAnyColor } from '../utils/parse-color';
-import { ColorPickerRootContext } from './color-picker-root-context';
+import { useRender } from '@base-ui/react/use-render';
+import * as React from 'react';
+
 import { useValueAsRef } from '../hooks/use-value-as-ref';
 import { bool } from '../utils/attrs';
+import { isAnyColorEqual } from '../utils/color';
+import type { AnyColor, HsvaColor } from '../utils/color';
+import { getHsvaStyleVariables, hsvaToHex } from '../utils/hsv';
+import { parseAnyColor } from '../utils/parse-color';
+import { ColorPickerRootContext } from './color-picker-root-context';
 
 function noop(): void {}
 

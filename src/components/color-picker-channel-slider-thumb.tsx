@@ -1,11 +1,12 @@
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { hsvaToHslString, hsvaToHslaString } from '../utils/hsv';
-import { CHANNEL_LABELS } from '../utils/channels';
+import { useRender } from '@base-ui/react/use-render';
+
 import { bool } from '../utils/attrs';
-import { useColorPickerRootContext } from './color-picker-root-context';
-import { useColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
 import { CHANNEL_SLIDER_ORIENTATIONS } from '../utils/channel-slider';
+import { CHANNEL_LABELS } from '../utils/channels';
+import { hsvaToHslString, hsvaToHslaString } from '../utils/hsv';
+import { useColorPickerChannelSliderContext } from './color-picker-channel-slider-context';
+import { useColorPickerRootContext } from './color-picker-root-context';
 
 type ColorPickerChannelSliderThumbProps = Omit<
   React.ComponentProps<'div'>,

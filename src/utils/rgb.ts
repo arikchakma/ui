@@ -1,5 +1,5 @@
-import { round } from './math';
 import type { HsvaColor, RgbaColor, RgbColor } from './color';
+import { round } from './math';
 
 export function rgbaToHsva(color: RgbaColor): HsvaColor {
   const { r, g, b, a } = color;

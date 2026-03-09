@@ -1,6 +1,6 @@
+import type { HsvaColor, RgbaColor } from './color';
 import { round } from './math';
 import { isObjectDeepEqual } from './object';
-import type { HsvaColor, RgbaColor } from './color';
 import { rgbaToHsva } from './rgb';
 
 export function hexToRgba(hex: string): RgbaColor {

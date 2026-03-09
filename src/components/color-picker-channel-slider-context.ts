@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { ChannelSliderOrientation } from '../utils/channel-slider';
 import type { HsvaChannel } from '../utils/channels';
 import { CROMIA_NAMESPACE } from '../utils/constants';

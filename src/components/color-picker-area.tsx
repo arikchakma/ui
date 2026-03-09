@@ -1,12 +1,13 @@
-import * as React from 'react';
-import { clamp } from '../utils/math';
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
+import { useRender } from '@base-ui/react/use-render';
+import * as React from 'react';
+
+import { useColorPickerHandlers } from '../hooks/use-color-picker-handlers';
+import type { Interaction } from '../hooks/use-color-picker-handlers';
+import { clamp } from '../utils/math';
 import { rootStateAttributesMapping } from './color-picker-root';
 import type { ColorPickerRoot } from './color-picker-root';
 import { useColorPickerRootContext } from './color-picker-root-context';
-import { useColorPickerHandlers } from '../hooks/use-color-picker-handlers';
-import type { Interaction } from '../hooks/use-color-picker-handlers';
 
 export type ColorPickerAreaProps = Omit<
   React.ComponentProps<'div'>,

@@ -1,7 +1,8 @@
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { hsvaToHslString } from '../utils/hsv';
+import { useRender } from '@base-ui/react/use-render';
+
 import { bool } from '../utils/attrs';
+import { hsvaToHslString } from '../utils/hsv';
 import { useColorPickerRootContext } from './color-picker-root-context';
 
 type ColorPickerAreaThumbProps = Omit<React.ComponentProps<'div'>, 'color'> & {

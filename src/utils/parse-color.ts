@@ -1,4 +1,3 @@
-import { CROMIA_ERROR_PREFIX } from './constants';
 import type {
   AnyColor,
   HslaColor,
@@ -8,6 +7,7 @@ import type {
   RgbaColor,
   RgbColor,
 } from './color';
+import { CROMIA_ERROR_PREFIX } from './constants';
 import { hexToHsva } from './hex';
 import { hslaStringToHsva, hslaToHsva } from './hsl';
 import { hsvaStringToHsva } from './hsv';

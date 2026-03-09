@@ -1,6 +1,6 @@
-import { round } from './math';
 import type { HslaColor, HsvaColor, HsvColor, RgbaColor } from './color';
 import { parseHue } from './hue';
+import { round } from './math';
 import { rgbaToHex } from './rgb';
 
 const HSV_STRING_REGEX =

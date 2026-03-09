@@ -1,5 +1,6 @@
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
+import { useRender } from '@base-ui/react/use-render';
+
 import { useColorPickerRootContext } from './color-picker-root-context';
 
 type ColorPickerAreaBackgroundProps = Omit<
