@@ -1,0 +1,94 @@
+---
+import { createHighlighter } from 'shiki';
+import Copy from '../icons/copy.astro';
+import Check from '../icons/check.astro';
+
+interface Props {
+  code: string;
+  lang?: string;
+  filename?: string;
+}
+
+const { code, lang = 'tsx', filename } = Astro.props;
+
+const highlighter = await createHighlighter({
+  themes: ['github-light-default'],
+  langs: ['tsx', 'bash'],
+});
+
+const lineCount = code.trim().split('\n').length;
+const gutterWidth = String(lineCount).length;
+
+const html = highlighter.codeToHtml(code.trim(), {
+  lang,
+  theme: 'github-light-default',
+});
+---
+
+<div class="code-block group relative overflow-hidden rounded-xl border border-gray-200" style={`--gutter-width: ${gutterWidth}ch;`}>
+  {filename && (
+    <div class="flex items-center border-b border-gray-200 bg-gray-50/60 px-4 py-2">
+      <span class="font-mono text-xs text-gray-500">{filename}</span>
+    </div>
+  )}
+
+  <div class="relative">
+    <div class="code-content overflow-x-auto" set:html={html} />
+    <button
+      class="copy-btn absolute right-2 top-1.5 flex size-7 items-center justify-center rounded-md border border-gray-200 bg-white/80 text-gray-400 opacity-0 backdrop-blur-sm transition-all hover:text-gray-600 group-hover:opacity-100"
+      aria-label="Copy code"
+    >
+      <Copy class="copy-icon size-3.5" />
+      <Check class="check-icon hidden size-3.5" />
+    </button>
+  </div>
+</div>
+
+<style is:global>
+  .code-block .shiki {
+    margin: 0;
+    padding: 0.75rem;
+    background-color: #ffffff !important;
+    font-size: 12.5px;
+    line-height: 1.6;
+    counter-reset: line;
+  }
+
+  .code-block .shiki code {
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  .code-block .shiki code .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: var(--gutter-width, 2ch);
+    margin-right: 1.25rem;
+    text-align: right;
+    color: #d1d5db;
+    user-select: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const block = btn.closest('.code-block');
+      const code = block?.querySelector('.shiki code');
+      if (!code) return;
+
+      await navigator.clipboard.writeText(code.textContent ?? '');
+
+      const copyIcon = btn.querySelector('.copy-icon') as HTMLElement;
+      const checkIcon = btn.querySelector('.check-icon') as HTMLElement;
+
+      copyIcon.classList.add('hidden');
+      checkIcon.classList.remove('hidden');
+
+      setTimeout(() => {
+        copyIcon.classList.remove('hidden');
+        checkIcon.classList.add('hidden');
+      }, 2000);
+    });
+  });
+</script>

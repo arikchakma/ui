@@ -10,7 +10,7 @@ body {
 
 @layer base {
   html {
-    color: #1c1917;
+    color: #111827;
     background: #ffffff;
     scroll-behavior: smooth;
     scroll-padding-top: 50px;

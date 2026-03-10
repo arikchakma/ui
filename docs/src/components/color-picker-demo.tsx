@@ -39,22 +39,24 @@ type SectionHeaderProps = {
 };
 
 function SectionHeader(props: SectionHeaderProps) {
+  const { number, title, description, color } = props;
+
   return (
     <header className="mb-6">
-      <p className="font-mono text-[10px] tracking-widest text-stone-300">
-        {props.number}
+      <p className="font-mono text-xs tracking-widest text-gray-300">
+        {number}
       </p>
       <div className="mt-1 flex items-center gap-2">
-        <h3 className="text-[15px] font-semibold tracking-[-0.01em] text-stone-800">
-          {props.title}
+        <h3 className="font-semibold tracking-[-0.01em] text-gray-800">
+          {title}
         </h3>
         <div
           className="size-2 rounded-full ring-1 ring-black/6"
-          style={{ backgroundColor: props.color }}
+          style={{ backgroundColor: color }}
         />
       </div>
-      <p className="mt-1 text-xs leading-relaxed text-stone-400">
-        {props.description}
+      <p className="mt-1 text-sm leading-relaxed text-gray-400">
+        {description}
       </p>
     </header>
   );
@@ -73,7 +75,7 @@ function CompletePicker() {
       />
 
       <ColorPicker.Root color={color} onColorChange={setColor}>
-        <ColorPicker.Area className="relative h-52 w-full cursor-crosshair rounded-2xl">
+        <ColorPicker.Area className="relative h-44 w-full cursor-crosshair rounded-2xl">
           <ColorPicker.AreaBackground className={AREA_BG} />
           <ColorPicker.AreaThumb className={THUMB} />
         </ColorPicker.Area>
@@ -96,14 +98,14 @@ function CompletePicker() {
           </ColorPicker.ChannelSlider>
         </div>
 
-        <div className="mt-3.5 flex items-center gap-2.5 rounded-full bg-stone-100/70 px-2 py-2">
+        <div className="mt-3.5 flex items-center gap-2.5 rounded-full bg-gray-100/70 px-2 py-2">
           <div
             className="size-5 shrink-0 rounded-full"
             style={{ backgroundColor: color }}
           />
           <ColorPicker.Input
             channel="hex-alpha"
-            className="w-full bg-transparent font-mono text-sm text-stone-500 uppercase outline-none focus:text-stone-700 data-invalid:text-red-400"
+            className="w-full bg-transparent font-mono text-sm text-gray-500 uppercase outline-none focus:text-gray-700 data-invalid:text-red-400"
           />
         </div>
 
@@ -122,12 +124,12 @@ function CompletePicker() {
         <div className="mt-3.5 flex items-center gap-3">
           {CHANNELS.map((ch) => (
             <div key={ch} className="flex items-center gap-1">
-              <span className="text-xs font-medium text-stone-300 uppercase">
+              <span className="text-xs font-medium text-gray-300 uppercase">
                 {ch[0]}
               </span>
               <ColorPicker.Input
                 channel={ch}
-                className="w-10 bg-transparent font-mono text-xs text-stone-500 tabular-nums transition-colors outline-none focus:text-stone-700"
+                className="w-10 bg-transparent font-mono text-xs text-gray-500 tabular-nums transition-colors outline-none focus:text-gray-700"
               />
             </div>
           ))}
@@ -154,12 +156,12 @@ function ChannelsPicker() {
           {CHANNELS.map((ch) => (
             <div key={ch}>
               <div className="mb-1.5 flex items-baseline justify-between">
-                <span className="text-[12px] font-medium text-stone-500">
+                <span className="text-[12px] font-medium text-gray-500">
                   {CHANNEL_NAMES[ch]}
                 </span>
                 <ColorPicker.Input
                   channel={ch}
-                  className="w-14 bg-transparent text-right font-mono text-[11px] text-stone-400 tabular-nums transition-colors outline-none focus:text-stone-700"
+                  className="w-14 bg-transparent text-right font-mono text-[11px] text-gray-400 tabular-nums transition-colors outline-none focus:text-gray-700"
                 />
               </div>
               <ColorPicker.ChannelSlider
@@ -173,14 +175,14 @@ function ChannelsPicker() {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center gap-2.5 rounded-full bg-stone-100/70 px-2 py-2">
+        <div className="mt-5 flex items-center gap-2.5 rounded-full bg-gray-100/70 px-2 py-2">
           <div
             className="size-5 shrink-0 rounded-full"
             style={{ backgroundColor: color }}
           />
           <ColorPicker.Input
             channel="hex"
-            className="w-full bg-transparent font-mono text-[13px] text-stone-500 uppercase outline-none focus:text-stone-700 data-invalid:text-red-400"
+            className="w-full bg-transparent font-mono text-[13px] text-gray-500 uppercase outline-none focus:text-gray-700 data-invalid:text-red-400"
           />
         </div>
       </ColorPicker.Root>
@@ -216,14 +218,14 @@ function CompactPicker() {
           </ColorPicker.ChannelSlider>
         </div>
 
-        <div className="mt-3.5 flex items-center gap-2.5 rounded-full bg-stone-100/70 px-2 py-2">
+        <div className="mt-3.5 flex items-center gap-2.5 rounded-full bg-gray-100/70 px-2 py-2">
           <div
             className="size-5 shrink-0 rounded-full"
             style={{ backgroundColor: color }}
           />
           <ColorPicker.Input
             channel="hex"
-            className="w-full bg-transparent font-mono text-[13px] text-stone-500 uppercase outline-none focus:text-stone-700 data-invalid:text-red-400"
+            className="w-full bg-transparent font-mono text-[13px] text-gray-500 uppercase outline-none focus:text-gray-700 data-invalid:text-red-400"
           />
         </div>
       </ColorPicker.Root>
@@ -235,7 +237,7 @@ export function ColorPickerExamples() {
   return (
     <div>
       <header className="mb-16 max-w-lg">
-        <h1 className="font-serif text-4xl font-light tracking-tight text-stone-800">
+        <h1 className="font-serif text-4xl font-light tracking-tight text-gray-800">
           cromia
         </h1>
         <div
@@ -245,14 +247,14 @@ export function ColorPickerExamples() {
               'linear-gradient(to right, #f87171, #fb923c, #facc15, #4ade80, #22d3ee, #60a5fa, #a78bfa)',
           }}
         />
-        <p className="mt-4 text-sm leading-relaxed text-balance text-stone-400">
+        <p className="mt-4 text-sm leading-relaxed text-balance text-gray-400">
           Headless color primitives for React. Compose any picker from the same
           building blocks — each example below uses identical components, styled
           differently.
         </p>
-        <div className="mt-4 inline-flex items-center rounded-lg border border-stone-200 bg-stone-50 px-4 py-2">
-          <code className="font-mono text-sm text-stone-500">
-            <span className="text-stone-300">$</span> npm install cromia
+        <div className="mt-4 inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 px-4 py-2">
+          <code className="font-mono text-sm text-gray-500">
+            <span className="text-gray-300">$</span> npm install cromia
           </code>
         </div>
       </header>
