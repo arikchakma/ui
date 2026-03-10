@@ -47,7 +47,7 @@
     "build": "tsdown && pnpm build:docs",
     "build:docs": "cd docs && pnpm build",
     "clean": "rm -rf dist",
-    "dev": "tsdown --watch",
+    "dev": "tsdown --watch & pnpm --filter docs dev & wait",
     "format:check": "oxfmt --check",
     "format:write": "oxfmt",
     "lint": "oxlint",
