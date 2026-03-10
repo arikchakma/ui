@@ -51,6 +51,7 @@
     "format:write": "oxfmt",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix --fix-suggestions --fix-dangerously",
+    "release": "bumpp",
     "test": "vitest"
   },
   "devDependencies": {
@@ -61,6 +62,7 @@
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/browser-playwright": "^4.0.18",
     "babel-plugin-react-compiler": "^1.0.0",
+    "bumpp": "^10.4.1",
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
     "playwright": "^1.58.2",
