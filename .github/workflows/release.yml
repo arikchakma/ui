@@ -14,4 +14,5 @@ jobs:
     with:
       publish: true
       build: pnpm run build
+      publish-directory: packages/cromia
     secrets: inherit
