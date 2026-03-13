@@ -1,7 +1,7 @@
 <div align="center">
   <h2>🎨 cromia</h2>
   <p>Headless, composable color picker primitives for React. Unstyled, accessible, and fully customizable.</p>
-  <a href="https://npmjs.com/package/cromia"><strong>npm</strong></a>
+  <a href="https://npmx.dev/package/cromia"><strong>npmx</strong></a>
 </div>
 
 ### Installation

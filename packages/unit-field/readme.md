@@ -1,7 +1,7 @@
 <div align="center">
   <h2>🛝 unit-field</h2>
   <p>Headless, composable numeric input field for React with drag-to-scrub and keyboard controls. Unstyled, accessible, and fully customizable.</p>
-  <a href="https://npmjs.com/package/unit-field"><strong>npm</strong></a>
+  <a href="https://npmx.dev/package/unit-field"><strong>npmx</strong></a>
 </div>
 
 ### Installation
