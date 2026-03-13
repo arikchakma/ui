@@ -50,7 +50,7 @@
     "clean": "rm -rf dist",
     "dev": "tsdown --watch",
     "release": "bumpp",
-    "test": "vitest"
+    "test": "vitest --passWithNoTests"
   },
   "devDependencies": {
     "@base-ui/utils": "0.2.3",
