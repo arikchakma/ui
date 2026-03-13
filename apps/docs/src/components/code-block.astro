@@ -1,5 +1,5 @@
 ---
-import { createHighlighter, type Highlighter } from 'shiki';
+import { getHighlighter } from '../lib/highlighter';
 import Copy from '../icons/copy.astro';
 import Check from '../icons/check.astro';
 
@@ -7,17 +7,6 @@ interface Props {
   code: string;
   lang?: string;
   filename?: string;
-}
-
-let _highlighter: Highlighter;
-async function getHighlighter() {
-  if (!_highlighter) {
-    _highlighter = await createHighlighter({
-      themes: ['github-light-default'],
-      langs: ['tsx', 'bash'],
-    });
-  }
-  return _highlighter;
 }
 
 const { code, lang = 'tsx', filename } = Astro.props;
