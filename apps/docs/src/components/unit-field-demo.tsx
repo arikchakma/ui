@@ -2,7 +2,7 @@ import { UnitField } from 'unit-field';
 import { useCallback, useState } from 'react';
 
 const INPUT =
-  'w-full bg-transparent text-right font-mono text-sm text-gray-700 tabular-nums outline-none placeholder:text-gray-300';
+  'w-full bg-transparent pr-2.5 text-right font-mono text-sm text-gray-700 tabular-nums outline-none placeholder:text-gray-300';
 
 const DRAG_AREA =
   'flex aspect-square w-9 shrink-0 cursor-ew-resize items-center justify-center text-[12px] font-medium text-gray-400 select-none';
@@ -20,7 +20,7 @@ function SectionHeader(props: SectionHeaderProps) {
   const { number, title, description } = props;
 
   return (
-    <header className="mb-5">
+    <header className="mb-3">
       <div className="flex items-baseline gap-2">
         <span className="font-mono text-[11px] text-gray-400">{number}</span>
         <h3 className="text-[14px] font-medium text-black">{title}</h3>
@@ -82,7 +82,7 @@ function PropertiesDemo() {
         description="Drag the labels to scrub. Arrow keys for fine control, shift for large steps."
       />
 
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         <FieldRow label="Width">
           <UnitField.Root className={ROOT} format={pxFormat} parse={pxParse} value={width} onValueChange={setWidth} min={0} max={1000}>
             <UnitField.DragArea className={DRAG_AREA}>W</UnitField.DragArea>
@@ -121,12 +121,12 @@ function PropertiesDemo() {
         </FieldRow>
       </div>
 
-      <div className="mt-5 flex items-center justify-center border border-gray-200 p-8">
+      <div className="mt-4 flex h-32 items-center justify-center overflow-hidden border border-gray-200">
         <div
           className="bg-gray-800"
           style={{
-            width,
-            height,
+            width: Math.min(width, 160),
+            height: Math.min(height, 80),
             borderRadius: radius,
             transform: `rotate(${rotation}deg)`,
             opacity: opacity / 100,
@@ -174,18 +174,18 @@ function PaddingDemo() {
         </UnitField.Root>
       </div>
 
-      <div className="mt-5 flex items-center justify-center border border-gray-200 p-6">
+      <div className="mt-4 flex items-center justify-center border border-gray-200 p-4">
         <div className="relative inline-block border border-dashed border-gray-300">
           <div
             style={{
-              paddingTop: top,
-              paddingRight: right,
-              paddingBottom: bottom,
-              paddingLeft: left,
+              paddingTop: Math.min(top, 32),
+              paddingRight: Math.min(right, 40),
+              paddingBottom: Math.min(bottom, 32),
+              paddingLeft: Math.min(left, 40),
               transition: 'all 150ms ease',
             }}
           >
-            <div className="h-16 w-32 bg-gray-800" />
+            <div className="h-10 w-24 bg-gray-800" />
           </div>
           <span className="absolute top-1/2 left-1 -translate-y-1/2 font-mono text-[9px] text-gray-400">{left}</span>
           <span className="absolute top-1/2 right-1 -translate-y-1/2 font-mono text-[9px] text-gray-400">{right}</span>
@@ -261,7 +261,7 @@ function FontSizeDemo() {
         description="Font size, line height, and letter spacing."
       />
 
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         <FieldRow label="Size">
           <UnitField.Root className={ROOT} format={pxFormat} parse={pxParse} value={fontSize} onValueChange={setFontSize} min={8} max={120}>
             <UnitField.DragArea className={DRAG_AREA}>Sz</UnitField.DragArea>
@@ -291,7 +291,7 @@ function FontSizeDemo() {
         </FieldRow>
       </div>
 
-      <div className="mt-5 border border-gray-200 p-4 overflow-hidden">
+      <div className="mt-4 border border-gray-200 p-4 overflow-hidden">
         <p
           className="text-black transition-all font-medium"
           style={{
@@ -309,7 +309,7 @@ function FontSizeDemo() {
 
 export function UnitFieldExamples() {
   return (
-    <div className="grid items-start gap-10 sm:grid-cols-2">
+    <div className="grid items-start gap-x-6 gap-y-10 sm:grid-cols-2">
       <PropertiesDemo />
       <PaddingDemo />
       <CommittedDemo />
