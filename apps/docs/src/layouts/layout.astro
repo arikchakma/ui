@@ -6,10 +6,11 @@ const site = 'https://ui.arikko.dev';
 const {
   title = 'UI — Headless primitives for React',
   description = 'A collection of headless, composable React primitives. Unstyled, accessible, and fully customizable.',
+  ogImagePath = '/og.png',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, site).href;
-const ogImage = new URL('/og.png', site).href;
+const ogImage = new URL(ogImagePath, site).href;
 ---
 
 <!doctype html>
