@@ -1,5 +1,6 @@
 import { UnitField } from 'unit-field';
 import { useCallback, useState } from 'react';
+import { SectionHeader } from './section-header';
 
 const INPUT =
   'w-full bg-transparent pr-2.5 text-right font-mono text-sm text-gray-700 tabular-nums outline-none placeholder:text-gray-300';
@@ -9,26 +10,6 @@ const DRAG_AREA =
 
 const ROOT =
   'relative flex h-9 w-full items-stretch border border-gray-200 transition-colors data-[focused=true]:border-gray-400';
-
-type SectionHeaderProps = {
-  number: string;
-  title: string;
-  description: string;
-};
-
-function SectionHeader(props: SectionHeaderProps) {
-  const { number, title, description } = props;
-
-  return (
-    <header className="mb-3">
-      <div className="flex items-baseline gap-2">
-        <span className="font-mono text-[11px] text-gray-400">{number}</span>
-        <h3 className="text-[14px] font-medium text-black">{title}</h3>
-      </div>
-      <p className="mt-1 text-[13px] text-gray-500">{description}</p>
-    </header>
-  );
-}
 
 function pxFormat(v: number) {
   return `${v}px`;
